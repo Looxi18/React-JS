@@ -1,25 +1,28 @@
 import './App.css'
-import ItemListContainer from './assets/components/ItemListContainer/ItemListContainer'
-import NavBar from './assets/components/NavBar/NavBar'
-import { BrowserRouter, Routes, Route} from 'react-router-dom'
-import HomeContainer from './assets/components/HomeContainer/HomeContainer'
-import ContactContainer from './assets/components/ContactContainer/ContactContainer'
-import ProductsContainer from './assets/components/ProductsContainer/ProductsContainer'
-import ProductDetails from './assets/components/ProductDetails/ProductDetails'
+import React from 'react';
+import NavBar from './components/NavBar/NavBar';
+import ItemList from './components/ItemListContainer/ItemList';
+import { Routes, Route } from 'react-router-dom';
+import CartWidget from './components/Navbar/CartWidget';
+import { CartProvider } from './context/CartContext';
+import ProductDetail from './components/ItemDetailContainer/ItemDetail';
+import CartItem from './components/Cart/CartItem';
+
 
 
 function App() {
   return (
     <>
-      <BrowserRouter>
+      <CartProvider>
         <NavBar />
         <Routes>
-          <Route exact path="/" element={<HomeContainer/>} />
-          <Route exact path="/products" element={<ProductsContainer/>} />
-          <Route exact path="/contact" element={<ContactContainer/>} />
-          <Route exact path="/product/:id" element={<ProductDetails />} />
+          <Route exact path="/" element={<ItemList />} />
+          <Route exact path="/:category" element={<ItemList />} />
+          <Route exact path="/product/:id" element={<ProductDetail />} />
+          <Route exact path="/Cart" element={<CartItem />} />
         </Routes>
-      </BrowserRouter>
+      </CartProvider>
+
     </>
   );
 }

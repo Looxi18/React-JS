@@ -1,17 +1,17 @@
-import React from 'react';
+import './Cart.css' 
 
 
-const CartItem = ( prod ) => {
-    console.log(prod)
+const CartItem = ( { product }) => {
+
   return (
     <div className="cart-item">
-      <img src={prod.image} alt={prod.title} />{
-      }
+      <img className='img-item' src={product.image} alt={product.title} />
       <div className="cart-item-details">
-        <h4>{prod.title}</h4>
-        <p>{prod.artist}</p>
-        <p>Precio: ${prod.price}</p>
-        <p>Cantidad: {prod.quantity || 1}</p>
+        <h4>{product.title}</h4>
+        <p>{product.artist}</p>
+        <p>Precio: US$ {product.price}</p>
+        <p>Cantidad: {product.quantity}</p>
+
       </div>
     </div>
   );

@@ -1,17 +1,8 @@
 import './ItemList.css'
-// import { useContext } from 'react';
-// import { CartContext } from '../../context/CartContext';
 import { Link } from 'react-router-dom';
 
 
 export default function ProductCard({ prod }) {
-  // const [, , addItem]=useContext(CartContext)
-
-  // const handleClick=()=>{
-  //   addItem(prod)
-  // }
-
-
   return (
     <>
       <div className="card">
